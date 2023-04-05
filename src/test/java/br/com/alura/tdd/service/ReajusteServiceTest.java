@@ -11,11 +11,11 @@ import br.com.alura.tdd.modelo.Funcionario;
 
 public class ReajusteServiceTest {
 
+    private ReajusteService service = new ReajusteService();
+    private Funcionario funcionario = new Funcionario("Ana", LocalDate.now(), new BigDecimal("1000"));
+
     @Test
     public void reajusteDeveriaSerDeTresPorcentoQuandoDesempenhoForADesejar() {
-        ReajusteService service = new ReajusteService();
-        Funcionario funcionario = new Funcionario("Ana", LocalDate.now(), new BigDecimal("1000"));
-
         service.concederReajuste(funcionario, Desempenho.A_DESEJAR);
 
         assertEquals(new BigDecimal("1030.00"), funcionario.getSalario());
@@ -23,8 +23,6 @@ public class ReajusteServiceTest {
 
     @Test
     public void reajusteDeveriaSerDeQuinzePorcentoQuandoDesempenhoForBom() {
-        ReajusteService service = new ReajusteService();
-        Funcionario funcionario = new Funcionario("Ana", LocalDate.now(), new BigDecimal("1000"));
 
         service.concederReajuste(funcionario, Desempenho.BOM);
 
@@ -33,8 +31,6 @@ public class ReajusteServiceTest {
 
     @Test
     public void reajusteDeveriaSerDeVintePorcentoQuandoDesempenhoForOtimo() {
-        ReajusteService service = new ReajusteService();
-        Funcionario funcionario = new Funcionario("Ana", LocalDate.now(), new BigDecimal("1000"));
 
         service.concederReajuste(funcionario, Desempenho.OTIMO);
 
